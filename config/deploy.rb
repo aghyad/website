@@ -1,8 +1,8 @@
 set :stages, %w(production)
 set :default_stage, "production"
 
-#require "rvm/capistrano"
-#require "bundler/capistrano"
+require "rvm/capistrano"
+require "bundler/capistrano"
 
 require 'capistrano/ext/multistage'
 
