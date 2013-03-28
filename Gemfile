@@ -7,7 +7,6 @@ gem 'rails', '3.2.11'
 
 gem 'mysql2'
 
-
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -33,6 +32,8 @@ gem 'jquery-rails'
 
 # Deploy with Capistrano
 gem 'capistrano'
-gem "rvm-capistrano"
+
+#gem "rvm-capistrano"
+
 # To use debugger
 # gem 'debugger'
