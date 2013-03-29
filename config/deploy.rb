@@ -33,7 +33,7 @@ set :user, "root"
 set :deploy_via, :checkout
 set :use_sudo, false
 set :rails_env, "production"
-ser :username, "deployer"
+set :username, "deployer"
 set :deploy_to, "/var/www/apps/#{application}/#{rails_env}"    ### activate for production deployment
 
 set :scm, "git"
