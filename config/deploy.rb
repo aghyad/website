@@ -33,6 +33,7 @@ set :user, "root"
 set :deploy_via, :checkout
 set :use_sudo, false
 set :rails_env, "production"
+ser :username, "deployer"
 set :deploy_to, "/var/www/apps/#{application}/#{rails_env}"    ### activate for production deployment
 
 set :scm, "git"
@@ -44,7 +45,7 @@ namespace :deploy do
   desc 'Create default database'
   task :createdb, :roles => :db, :only => { :primary => true } do
     rake = fetch(:rake, "bundle exec rake")
-    rails_env = ARGV[0]
+    #rails_env = ARGV[0]
     migrate_env = fetch(:migrate_env, "dev")
     migrate_target = fetch(:migrate_target, :latest)
     
@@ -69,9 +70,10 @@ namespace :deploy do
   
   desc "Restart Application"
   task :restart do
-    #run "chown -R apache:apache #{deploy_to}"
-    #run "touch #{deploy_to}/current/tmp/restart.txt"
-    run "/etc/init.d/nginx restart"
+    run "sudo chmod -R 755 #{deploy_to}"
+    run "sudo chown -R #{username}:#{username} #{deploy_to}"
+    #run "/etc/init.d/nginx restart"
+    run "sudo service nginx restart"
   end
 end
 
