@@ -17,6 +17,14 @@
 						<span class="icon-bar"></span>
 					</a>
 					<%= render :partial=>"layouts/logo" %>
+					<div class="nav-collapse">
+						<ul class="nav">
+							<li>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+							<li class="<%= (params[:action]=="view_resume") ? "active" : "" %>"><%= link_to "My Resume", "/" %></li>
+							<li class="<%= (params[:action]=="view_portfolio") ? "active" : "" %>"><%= link_to "My Portfolio", "/" %></li>
+							<li class="<%= (params[:action]=="new_contact") ? "active" : "" %>"><%= link_to "Contact Me", "/" %></li>
+						</ul>
+					</div>
 				</div>
 			</div>
 		</div>
