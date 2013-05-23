@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Aghyad Saleh Dot Com</title>
+		<title>Aghyad Saleh Pages - http://www.AghyadSaleh.com</title>
 		<%= stylesheet_link_tag    "application", :media => "all" %>
 		<%= javascript_include_tag "application" %>
 		<%= csrf_meta_tags %>
@@ -16,27 +16,27 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</a>
-					
-					<a class="brand" href="/">
-						<!-- <span style="font-size:24px;">AghyadSaleh</span><span style="font-size:14px;">d<b>o</b>t</span><span style="font-size:18px;">COM</span> -->
-						<span style="font-size:23px;">A</span><span style="font-size:17px;">GHYAD</span><span style="font-size:23px;">S</span><span style="font-size:17px;">ALEH</span><span style="font-size:10px;"><b> o </b></span><span style="font-size:17px;">COM</span>
-					</a>
-					
-					<!--
-					<div class="nav-collapse">
-						<ul class="nav">
-							<li><%= link_to "Browse Products", :root %></li>
-							<li><%= link_to "Price List", :root %></li>
-							<li><%= link_to "Contact Us", :root %></li>
-							<li><%= link_to "Cart", :root %></li>
-						</ul>
-					</div>
-					-->
+					<%= render :partial=>"layouts/logo" %>
 				</div>
 			</div>
 		</div>
-	
-		<br><br><br><br>
+		
+		<% if content_for?(:global_alert) %>
+			<br><br>
+			<div class="navbar">
+				<div class="navbar-inner">
+					<div class="container" align="center">
+						<div align=center  style="width:100%; color:#d00; font-weight:bold; margin-top:12px;">
+							<%= yield :global_alert %>
+						</div>
+					</div>
+				</div>
+			</div>
+			<br>
+		<% else %>
+			<br><br><br><br>
+		<% end %>
+
 		<div class="container">
 			<div class="row">
 				<div class="span3">
@@ -49,7 +49,7 @@
 		</div>
 		
 		<br><br><br><br>
-		<div align="center"><h6>Aghyad Saleh 2013 - All Rights Reserved&nbsp;</h6></div>
+		<div align="center"><h6>All Rights Reserved &#169; 2010-<%= Time.now.year %></h6></div>
 		
 	</body>
 </html>
