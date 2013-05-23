@@ -1,7 +1,10 @@
 class HomeController < ApplicationController
   
   
-  def under_construction
+  #def under_construction
+  #end
+  
+  def index
   end
   
   
