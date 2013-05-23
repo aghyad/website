@@ -33,7 +33,7 @@ set :deploy_via, :checkout
 set :use_sudo, false
 set :rails_env, "production"
 set :username, "deployer"
-set :deploy_to, "/usr/#{username}/sites/#{application}/#{rails_env}"    ### activate for production deployment
+set :deploy_to, "/home/#{username}/sites/#{application}/#{rails_env}"    ### activate for production deployment
 
 set :scm, "git"
 set :repository, "git@github.com:aghyad/website.git"
