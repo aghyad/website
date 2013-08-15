@@ -1,14 +1,63 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Website</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title>AGHYAD SALEH o COM</title>
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+  
+  <body class="body">
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <%= render :partial=>"layouts/logo" %>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+              <li class="<%= (params[:action]=="view_resume") ? "active" : "" %>"><%= link_to "My Resume", "/" %></li>
+              <li class="<%= (params[:action]=="view_portfolio") ? "active" : "" %>"><%= link_to "My Portfolio", "/" %></li>
+              <li class="<%= (params[:action]=="new_contact") ? "active" : "" %>"><%= link_to "Contact Me", "/" %></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <% if content_for?(:global_alert) %>
+      <br><br>
+      <div class="navbar">
+        <div class="navbar-inner">
+          <div class="container" align="center">
+            <div align=center  style="width:100%; color:#d00; font-weight:bold; margin-top:12px;">
+              <%= yield :global_alert %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+    <% else %>
+      <br><br><br><br>
+    <% end %>
 
-<%= yield %>
-
-</body>
+    <div class="container">
+      <div class="row">
+        <div class="span10">
+          <%= yield :primary %>
+        </div>
+        <div class="span2">
+          <%= yield :secondary %>
+        </div>
+      </div>
+    </div>
+    
+    <br><br><br><br>
+    <div align="center"><h6>All Rights Reserved &#169; 2010-<%= Time.now.year %></h6></div>
+    
+  </body>
 </html>
