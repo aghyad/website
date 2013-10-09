@@ -8,6 +8,13 @@
     <br><br><br><br>
     <!-- <img src="ruby_image.jpeg" width="150" class="img-polaroid"></img> -->
     <img src="my_business_card.png" class="img-polaroid"></img>
+
+    <br><br><br><br><br><br><br> 
+
+    <% @weather.each do |key, val| %>
+      <b><%= key.split("_").join(" ") %></b> : <%= val %> &nbsp; &nbsp; &nbsp; &nbsp;
+    <% end %>
+
   </div>
 <% end %>
 
